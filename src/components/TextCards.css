@@ -1,0 +1,25 @@
+.card {
+    width: 250px;
+    height: 100px;
+    margin: 10px 20px;
+    padding: 12px 15px;
+    border: 1px solid #61b59f;
+    border-radius: 10px;
+    background-color: #0c1d34;
+    text-align: left;
+}
+
+.card:hover {
+    background-color: #79e3c717;
+    border-color: #79e3c6;
+    box-shadow: 0px 0px 5px 5px rgba(95, 95, 95, 0.099);
+}
+
+.title {
+    margin-bottom: 10px;
+}
+
+.content {
+    text-transform: none;
+    font-style: normal;
+}

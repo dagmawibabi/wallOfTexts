@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  background-color: #0c1a2f;
+  height: fit-content;
+  padding-bottom: 300px;
+  color: #cdd7f5;
+}
+
+.gridView {
+  padding: 0 80px;
+  display: grid;
+  grid-template-columns: repeat(5, 2vw);
+  grid-template-rows: repeat(0, 35vw);
+  grid-column-gap: 270px;
+  grid-row-gap: 10px;
+
+}
