@@ -10,7 +10,7 @@ function App() {
   const [numOfPosts, setNumOfPosts] = useState(0);
 
   useEffect(()=>{
-    fetch('https://dagmawibabi.com/wot/getNotes') //http://localhost:5000 
+    fetch('http://localhost:5000/wot/api/getNotes') //http://localhost:5000 //https://dagmawibabi.com
     .then((response) => response.json())
     .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON; setNumOfPosts(responseJSON.length)})
     .catch((e) => console.log("error"))
@@ -32,7 +32,7 @@ function App() {
     //navigator.clipboard.writeText(`${newTitle} \n ${newContent}`); 
 
     // add to db
-    fetch(`https://dagmawibabi.com/wot/sendNote/${newTitle}/${newContent}`) 
+    fetch(`https://dagmawibabi.com/wot/api/sendNote/${newTitle}/${newContent}`) 
     .then((response) => console.log(response))
     .catch((e) => console.log("error"))
 
@@ -40,7 +40,7 @@ function App() {
     setContent([...initContent]);
 
     // Update
-    fetch('https://dagmawibabi.com/wot/getNotes') //http://localhost:5000 
+    fetch('http://localhost:5000/wot/api/getNotes') //http://localhost:5000  //https://dagmawibabi.com
     .then((response) => response.json())
     .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON; setNumOfPosts(responseJSON.length)})
     .catch((e) => console.log("error"))
