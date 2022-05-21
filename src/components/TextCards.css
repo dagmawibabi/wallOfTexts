@@ -2,11 +2,13 @@
     width: 250px;
     height: auto;
     margin: 10px 20px;
-    padding: 12px 15px;
+    padding: 12px 10px;
     border: 1px solid #61b59f;
     border-radius: 10px;
     background-color: #0c1d34;
     text-align: left;
+    overflow: hidden;
+
 }
 
 .card:hover {
@@ -17,9 +19,14 @@
 
 .title {
     margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 .content {
+    padding: 5PX 10PX;
+    border-radius: 10px;
+    height: auto;
+    background-color: #0f223dc3;
     text-transform: none;
     font-style: normal;
     word-wrap: break-word;

@@ -7,7 +7,7 @@ export const InputBox = (props) => {
         <div className='container'>
             <input className='titleInputBox' id='titleInputBox' type='text' placeholder='Title of your note'></input>
             <br/>
-            <textarea className='contentInputBox' id='contentInputBox' placeholder='What do you want to say?'></textarea>
+            <textarea className='contentInputBox' id='contentInputBox' placeholder='What do you want to say?' maxLength={300}></textarea>
             <br/>
 
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
