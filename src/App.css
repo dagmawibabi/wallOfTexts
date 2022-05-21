@@ -12,11 +12,50 @@
 }
 
 .gridView {
-  padding: 0 80px;
   display: grid;
   grid-template-columns: repeat(5, 2vw);
   grid-template-rows: repeat(0, 35vw);
   grid-column-gap: 270px;
   grid-row-gap: 10px;
 
+}
+
+/* Simple responsive  */
+@media (max-width: 600px) {
+  .gridView {
+      padding-left: 5%;
+      grid-template-columns: repeat(1, 50vw);
+      grid-template-rows: repeat(0, 110vw);
+  }
+}
+
+@media (min-width: 610px) {
+  .gridView {
+      padding-left: 3%;
+      grid-template-columns: repeat(2, 20vw);
+      grid-template-rows: repeat(0, 70vw);
+      grid-row-gap: 10px;
+      grid-column-gap: 180px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .gridView {
+      padding-left: 4%;
+      grid-template-columns: repeat(3, 30vw);
+      grid-template-rows: repeat(0, 35vw);
+      grid-row-gap: 60px;
+      grid-column-gap: 20px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .gridView {
+      padding-left: 100px;
+      padding-top: 20px;
+      grid-template-columns: repeat(5, 15vw);
+      grid-template-rows: repeat(0, 35vw);
+      grid-row-gap: 0px;
+      grid-column-gap: 40px;
+  }
 }

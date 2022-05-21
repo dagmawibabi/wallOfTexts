@@ -3,30 +3,39 @@ import { InputBox } from './components/InputBox';
 import { TextCards } from './components/TextCards';
 import { useEffect, useState} from 'react';
 
-let content0 = [
-  {
-    title: "Hello World",
-    content: "This is a test",
-  },
-]
-
 let initContent = [];
 
 function App() {  
   const [content, setContent] = useState([]);
-  
-  function addNote(){
+
+  useEffect(()=>{
+    fetch('https://dagmawibabi.com/wot/getNotes') //http://localhost:5000 
+    .then((response) => response.json())
+    .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON;})
+    .catch((e) => console.log("error"))
+  }, []); 
+
+  async function addNote(){
     let newTitle = document.getElementById("titleInputBox").value;
     let newContent = document.getElementById("contentInputBox").value;
-    console.log(content.length);
-    initContent.push(
-      {
-        title: newTitle,
-        content: newContent,
-      }
-    );
-    setContent(initContent);
+    let newObj = {
+      title: newTitle,
+      content: newContent,
+    };
+    initContent.push(newObj);
+
+    // add to db
+    fetch(`https://dagmawibabi.com/wot/sendNote/${newTitle}/${newContent}`) 
+    .then((response) => console.log(response))
+    .catch((e) => console.log("error"))
+
+    // Refresh
+    setContent([...initContent]);
   }
+
+  useEffect(() => {
+    console.log(content);
+  }, [content]);
 
 
   return (
@@ -38,7 +47,7 @@ function App() {
 
       <div className='gridView'>
         {
-          content.length > 0 ? content.map((content, index) => {return <TextCards title={content['title']} content={content['content']} />}) : null
+          content.length > 0 ? content.map((content, index) => {return <TextCards key={index} title={content['title']} content={content['content']} />}) : null
         }
       </div>
 
