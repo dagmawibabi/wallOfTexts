@@ -40,20 +40,21 @@ async function connectToDB() {
 
 //? Routes
 // Intro
-app.get("/wot/", async (req, res, next) => {
+app.get("/wot/api/", async (req, res, next) => {
     res.send("Welcome to Wall of Texts API");
 });
 // Get Noteson
-app.get("/wot/getNotes", async (req, res) => {
+app.get("/wot/api/getNotes", async (req, res) => {
     let notes = await noteModel.find().sort({date: -1, time: -1});
     res.send(notes);
 
 });
 
 // Send Notes
-app.get("/wot/sendNote/:title/:content", async (req, res) => {
+app.get("/wot/api/sendNote/:title/:content", async (req, res) => {
     let title = req.params.title.toLowerCase();
-    if (title.includes("bot") === false) {
+    let restrictedWords = ["bot", "hacker", "hacker!!!"];
+    if (restrictedWords.indexOf(title) === -1) {
         let notes = await noteModel.find({title: req.params.title, content: req.params.content});
         if(notes.length === 0){
             const timeElapsed = Date.now();
@@ -71,13 +72,13 @@ app.get("/wot/sendNote/:title/:content", async (req, res) => {
 
 async function cleanBotMessage() {
     // remove note from db
-    let result = await noteModel.deleteMany({title: "Bot"});
+    let result = await noteModel.deleteMany({content: "another bot"});
     console.log("Done");
 }
 
 connectToDB();
 
-//cleanBotMessage();
+cleanBotMessage();
 
 
 
