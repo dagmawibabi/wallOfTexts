@@ -40,19 +40,17 @@ async function connectToDB() {
 
 //? Routes
 // Intro
-app.get("/wot/api/", async (req, res, next) => {
+app.get("/wot/", async (req, res, next) => {
     res.send("Welcome to Wall of Texts API");
 });
 // Get Noteson
-app.get("/wot/api/getNotes", async (req, res) => {
-    let notes = await noteModel.find().sort({date: -1, time: -1});
-    res.send(notes);
-    console.log(req.socket);
-
+app.get("/wot/getNotes", async (req, res) => {
+    let notes = await noteModel.find();
+    res.send(notes.reverse());
 });
 
 // Send Notes
-app.get("/wot/api/sendNote/:title/:content", async (req, res) => {
+app.get("/wot/sendNote/:title/:content", async (req, res) => {
     let title = req.params.title.toLowerCase();
     let restrictedWords = ["bot", "hacker", "hacker!!!", "point maker!!!"];
     if (restrictedWords.indexOf(title) === -1) {
@@ -65,6 +63,7 @@ app.get("/wot/api/sendNote/:title/:content", async (req, res) => {
                 content: req.params.content,
                 date: today.toLocaleDateString(),
                 time: today.toLocaleTimeString(),
+                ip: req.socket.remoteAddress,
             });
             res.status(200).send("done");
         };

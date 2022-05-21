@@ -8,7 +8,6 @@
     background-color: #0c1d34;
     text-align: left;
     overflow: hidden;
-
 }
 
 .card:hover {
@@ -20,6 +19,7 @@
 .title {
     margin-bottom: 10px;
     margin-left: 10px;
+    word-wrap: break-word;
 }
 
 .content {
@@ -39,4 +39,12 @@
     opacity: 1;
     border-radius: 10px;
     padding: 10px 20px;
+}
+
+.votes {
+    background-color: #0c1a2f;
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 4px 20px;
+    justify-content: right;
 }

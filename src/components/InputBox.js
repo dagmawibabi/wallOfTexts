@@ -5,9 +5,9 @@ import './SendBtn.css';
 export const InputBox = (props) => {
     return (
         <div className='container'>
-            <input className='titleInputBox' id='titleInputBox' type='text' placeholder='Title of your note'></input>
+            <input className='titleInputBox' id='titleInputBox' type='text' placeholder='Title of your note' maxLength={100}></input>
             <br/>
-            <textarea className='contentInputBox' id='contentInputBox' placeholder='What do you want to say?' maxLength={300}></textarea>
+            <textarea className='contentInputBox' id='contentInputBox' placeholder={'What do you want to say?'} maxLength={400}></textarea>
             <br/>
 
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
