@@ -52,17 +52,21 @@ function App() {
 
 
   return (
-    <div className="App">
-      <h1 style={{padding: "60px 0px 30px 0px", fontSize: "40px"}}> Words of Strangers </h1>
-      <div style={{display: "flex", justifyContent: "center"}}>
-        <InputBox btnFunc={addNote} />
+    <div>
+      <div className="App">
+        <h1 style={{padding: "60px 0px 30px 0px", fontSize: "40px"}}> Words of Strangers </h1>
+        <div style={{display: "flex", justifyContent: "center"}}>
+          <InputBox btnFunc={addNote} />
+        </div>
+
+        <div className='gridView'>
+          {
+            content.length > 0 ? content.map((content, index) => {return <TextCards key={index} title={content['title']} content={content['content']} date={content['date']} time={content['time']} />}) : null
+          }
+        </div>
       </div>
 
-      <div className='gridView'>
-        {
-          content.length > 0 ? content.map((content, index) => {return <TextCards key={index} title={content['title']} content={content['content']} date={content['date']} time={content['time']} />}) : null
-        }
-      </div>
+      <p style={{padding: "30px 0px 30px 0px", color: "#61b59f", borderTop: "1px solid #61b59f", backgroundColor: "#0c1a2f", fontSize: "15px", justifyContent: "center", textAlign: "center"}}> Made with 💙 by <a href="https://t.me/dagmawi_babi" style={{color: "#61b59f"}}> DagmawiBabi </a> </p>
 
     </div>
   );
