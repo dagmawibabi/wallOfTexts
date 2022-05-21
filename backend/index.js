@@ -8,7 +8,7 @@ app.use(cors());
 
 //? Server
 let portNum = process.env.PORT || 5000;
-let mongoAtlastUrl = process.env.DBURL || "mongodb+srv://NewSocialAPI:DagmawiBabi7@cluster0.fivp4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+let mongoAtlastUrl = process.env.DBURL;
 
 app.listen(portNum, () => {
     console.log(`Server is running on port ${portNum}`);
