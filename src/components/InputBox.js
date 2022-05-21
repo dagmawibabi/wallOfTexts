@@ -11,6 +11,7 @@ export const InputBox = (props) => {
             <br/>
 
             <div style={{display: 'flex', justifyContent: 'right'}}>
+                <button className='btn' > 20 </button>
                 <button className='btn' onClick={props.btnFunc}> Post Note </button>
             </div>
         </div>

@@ -28,7 +28,7 @@ let noteModel = new mongoose.model('note', noteSchema);
 // Connect to DB
 async function connectToDB() {
     console.log("Connecting...");
-    let mongoAtlastUrl = "mongodb+srv://NewSocialAPI:NewSocialAPI1234@cluster0.fivp4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let mongoAtlastUrl = process.env.DBURL;
     await mongoose.connect(mongoAtlastUrl, {
         useNewUrlParser: true,
         useUnifiedTopology: true
