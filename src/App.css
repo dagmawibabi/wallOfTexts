@@ -23,7 +23,7 @@
 /* Simple responsive  */
 @media (max-width: 600px) {
   .gridView {
-      padding-left: 5%;
+      padding-left: 7%;
       grid-template-columns: repeat(1, 50vw);
       grid-template-rows: repeat(0, 110vw);
   }
