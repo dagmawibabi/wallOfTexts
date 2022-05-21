@@ -3,11 +3,7 @@ let express = require('express');
 let app = new express();
 let cors = require('cors');
 
-var corsOptions = {
-    origin: '*',    
-    crossDomain: true,
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
+//? Middleware
 app.use(cors());
 
 //? Server
@@ -22,6 +18,8 @@ app.listen(portNum, () => {
 let noteSchema = new mongoose.Schema({
     title: String,
     content: String,
+    date: String,
+    time: String
 });
 
 // Model
@@ -44,25 +42,23 @@ async function connectToDB() {
 app.get("/wot/", async (req, res, next) => {
     res.send("Welcome to Wall of Texts API");
 });
-// Get Notes
+// Get Noteson
 app.get("/wot/getNotes", async (req, res) => {
-    let notes = await noteModel.find({});
-    //res.header("Access-Control-Allow-Origin", "*");
-    //res.header('Access-Control-Allow-Methods', 'DELETE, PUT, GET, POST');
-    //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    let notes = await noteModel.find().sort({date: -1, time: -1});
     res.send(notes);
 
 });
 
 // Send Notes
 app.get("/wot/sendNote/:title/:content", async (req, res) => {
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);    
     let response = await noteModel.create({
         title: req.params.title,
-        content: req.params.content
+        content: req.params.content,
+        date: today.toLocaleDateString(),
+        time: today.toLocaleTimeString(),
     });
-    //res.header("Access-Control-Allow-Origin", "*");
-    //res.header('Access-Control-Allow-Methods', 'DELETE, PUT, GET, POST');
-    //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.status(200).send("done");
 });
 

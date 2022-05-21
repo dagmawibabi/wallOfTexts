@@ -23,3 +23,12 @@
     text-transform: none;
     font-style: normal;
 }
+
+.clipboard {
+    color: white;
+    background-color: #0c1a2f;
+    border: 1px solid #61b59f;
+    opacity: 1;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
