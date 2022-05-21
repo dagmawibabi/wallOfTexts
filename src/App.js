@@ -10,7 +10,7 @@ function App() {
   const [numOfPosts, setNumOfPosts] = useState(0);
 
   useEffect(()=>{
-    fetch('http://localhost:5000/wot/api/getNotes') //http://localhost:5000 //https://dagmawibabi.com
+    fetch('https://dagmawibabi.com/wot/api/getNotes') //http://localhost:5000 //https://dagmawibabi.com
     .then((response) => response.json())
     .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON; setNumOfPosts(responseJSON.length)})
     .catch((e) => console.log("error"))
@@ -40,7 +40,7 @@ function App() {
     setContent([...initContent]);
 
     // Update
-    fetch('http://localhost:5000/wot/api/getNotes') //http://localhost:5000  //https://dagmawibabi.com
+    fetch('https://dagmawibabi.com/wot/api/getNotes') //http://localhost:5000  //https://dagmawibabi.com
     .then((response) => response.json())
     .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON; setNumOfPosts(responseJSON.length)})
     .catch((e) => console.log("error"))

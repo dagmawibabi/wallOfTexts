@@ -3,7 +3,7 @@ let express = require('express');
 let app = new express();
 let cors = require('cors');
 
-//? Middleware poop
+//? Middleware
 app.use(cors());
 
 //? Server
