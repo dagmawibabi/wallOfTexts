@@ -2,13 +2,9 @@ import './TextCards.css';
 import Popup from 'reactjs-popup';
 
 export const TextCards = (props) => {
-    function ctcb(){
-        console.log(this);
-        navigator.clipboard.writeText(props.title + "\n" + props.content);
-    }
     return (
         <Popup trigger={
-            <div className="card" onClick={ctcb()} >
+            <div className="card">
                 <h4 className='title'> {props.title}</h4> 
                 <p className='content'> {props.content}</p>
             </div>

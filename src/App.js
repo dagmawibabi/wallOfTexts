@@ -7,11 +7,12 @@ let initContent = [];
 
 function App() {  
   const [content, setContent] = useState([]);
+  const [numOfPosts, setNumOfPosts] = useState(0);
 
   useEffect(()=>{
     fetch('https://dagmawibabi.com/wot/getNotes') //http://localhost:5000 
     .then((response) => response.json())
-    .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON;})
+    .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON; setNumOfPosts(responseJSON.length)})
     .catch((e) => console.log("error"))
   }, []); 
 
@@ -22,6 +23,8 @@ function App() {
       title: newTitle,
       content: newContent,
     };
+    document.getElementById("titleInputBox").value = "";
+    document.getElementById("contentInputBox").value = "";
     initContent.push(newObj);
     //initContent.reverse();
 
@@ -39,16 +42,12 @@ function App() {
     // Update
     fetch('https://dagmawibabi.com/wot/getNotes') //http://localhost:5000 
     .then((response) => response.json())
-    .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON;})
+    .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON; setNumOfPosts(responseJSON.length)})
     .catch((e) => console.log("error"))
 
     // Refresh
     setContent([...initContent]);
   }
-
-  useEffect(() => {
-    console.log(content);
-  }, [content]);
 
 
   return (
@@ -56,7 +55,7 @@ function App() {
       <div className="App">
         <h1 style={{padding: "60px 0px 30px 0px", fontSize: "40px"}}> Words of Strangers </h1>
         <div style={{display: "flex", justifyContent: "center"}}>
-          <InputBox btnFunc={addNote} />
+          <InputBox btnFunc={addNote} numOfPosts={numOfPosts} />
         </div>
 
         <div className='gridView'>

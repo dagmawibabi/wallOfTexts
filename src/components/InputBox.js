@@ -10,8 +10,8 @@ export const InputBox = (props) => {
             <textarea className='contentInputBox' id='contentInputBox' placeholder='What do you want to say?'></textarea>
             <br/>
 
-            <div style={{display: 'flex', justifyContent: 'right'}}>
-                <button className='btn' > 20 </button>
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                <button className='postCount' style={{marginRight: "10px"}} > {props.numOfPosts + " notes so far"} </button>
                 <button className='btn' onClick={props.btnFunc}> Post Note </button>
             </div>
         </div>

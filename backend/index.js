@@ -8,6 +8,8 @@ app.use(cors());
 
 //? Server
 let portNum = process.env.PORT || 5000;
+let mongoAtlastUrl = process.env.DBURL;
+
 app.listen(portNum, () => {
     console.log(`Server is running on port ${portNum}`);
 });
@@ -28,7 +30,6 @@ let noteModel = new mongoose.model('note', noteSchema);
 // Connect to DB
 async function connectToDB() {
     console.log("Connecting...");
-    let mongoAtlastUrl = process.env.DBURL;
     await mongoose.connect(mongoAtlastUrl, {
         useNewUrlParser: true,
         useUnifiedTopology: true
@@ -51,15 +52,18 @@ app.get("/wot/getNotes", async (req, res) => {
 
 // Send Notes
 app.get("/wot/sendNote/:title/:content", async (req, res) => {
-    const timeElapsed = Date.now();
-    const today = new Date(timeElapsed);    
-    let response = await noteModel.create({
-        title: req.params.title,
-        content: req.params.content,
-        date: today.toLocaleDateString(),
-        time: today.toLocaleTimeString(),
-    });
-    res.status(200).send("done");
+    let notes = await noteModel.find({title: req.params.title, content: req.params.content});
+    if(notes.length === 0){
+        const timeElapsed = Date.now();
+        const today = new Date(timeElapsed);    
+        let response = await noteModel.create({
+            title: req.params.title,
+            content: req.params.content,
+            date: today.toLocaleDateString(),
+            time: today.toLocaleTimeString(),
+        });
+        res.status(200).send("done");
+    };
 });
 
   
