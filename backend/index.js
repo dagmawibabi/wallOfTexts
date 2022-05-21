@@ -52,21 +52,32 @@ app.get("/wot/getNotes", async (req, res) => {
 
 // Send Notes
 app.get("/wot/sendNote/:title/:content", async (req, res) => {
-    let notes = await noteModel.find({title: req.params.title, content: req.params.content});
-    if(notes.length === 0){
-        const timeElapsed = Date.now();
-        const today = new Date(timeElapsed);    
-        let response = await noteModel.create({
-            title: req.params.title,
-            content: req.params.content,
-            date: today.toLocaleDateString(),
-            time: today.toLocaleTimeString(),
-        });
-        res.status(200).send("done");
-    };
+    let title = req.params.title.toLowerCase();
+    if (title.includes("bot") === false) {
+        let notes = await noteModel.find({title: req.params.title, content: req.params.content});
+        if(notes.length === 0){
+            const timeElapsed = Date.now();
+            const today = new Date(timeElapsed);    
+            let response = await noteModel.create({
+                title: req.params.title,
+                content: req.params.content,
+                date: today.toLocaleDateString(),
+                time: today.toLocaleTimeString(),
+            });
+            res.status(200).send("done");
+        };
+    }
 });
 
-  
+async function cleanBotMessage() {
+    // remove note from db
+    let result = await noteModel.deleteMany({title: "Bot"});
+    console.log("Done");
+}
+
 connectToDB();
+
+//cleanBotMessage();
+
 
 
