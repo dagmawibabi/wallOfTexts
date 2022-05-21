@@ -22,6 +22,7 @@
 .content {
     text-transform: none;
     font-style: normal;
+    word-wrap: break-word;
 }
 
 .clipboard {
