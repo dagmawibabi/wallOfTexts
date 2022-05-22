@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Words Of Strangers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    Imagine if you could write something and post it to the world totally anonymous.
 
-## Available Scripts
+    You could confess a secret, write a letter to your crush, get some thoughts off your mind, tell a joke and basically anything you can think of.
 
-In the project directory, you can run:
+    With that in mind, I made Words Of Strangers. A webapp where you could post anything you want and it will be posted there forever. No one, not even me, will know who said what.
 
-### `npm start`
+    It's also responsive on phones, tabLETS and PC so whatever you are on right now try it out and leave a note for all of us. 😊
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![image1](assets/1.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![image1](assets/2.png)
 
-### `npm test`
+![image1](assets/3.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="assets/4.jpg" width="300px">
+<img src="assets/5.jpg" width="300px">
 
-### `npm run build`
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to contribute
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> ### To contribute you need to make a pull request and here’s how:
 
-### `npm run eject`
+    1. Fork the repository and clone it locally. Connect your local to the original “upstream” repository by adding it as a remote. Pull in changes from “upstream” often so that you stay up to date so that when you submit your pull request, merge conflicts will be less likely. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    2. Create a branch for your edits.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    3. Reference any relevant issues or supporting documentation in your PR (for example, “Closes #37.”)
+    
+    4. Try to include screenshots of the before and after if your changes include differences in HTML/CSS. Drag and drop the images into the body of your pull request.
+    
+    5. Test your changes! Run your changes against any existing tests if they exist and create new ones when needed. Whether tests exist or not, make sure your changes don’t break the existing project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    6. Contribute in the style of the project to the best of your abilities. This may mean using indents, semi-colons or comments differently than you would in your own repository, but makes it easier for the maintainer to merge, others to understand and maintain in the future.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Link to website
 
-## Learn More
+> * https://wall-of-texts.vercel.app/
+> * https://wall-of-texts-dagmawibabi.vercel.app/
+> * https://wall-of-texts-git-main-dagmawibabi.vercel.app/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Developer
+> Dagmawi Babi
 
-### Code Splitting
+## Date
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> Saturday,  May 21 - 2022 GC
