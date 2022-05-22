@@ -8,13 +8,15 @@ let initContent = [];
 function App() {  
   const [content, setContent] = useState([]);
   const [numOfPosts, setNumOfPosts] = useState(0);
+  const [sort, setSort] = useState("time");
+  const [order, setOrder] = useState(-1);
 
   useEffect(()=>{
-    fetch('https://dagmawibabi.com/wot/getNotes') //http://localhost:5000 //https://dagmawibabi.com
+    fetch('https://dagmawibabi.com/wot/getNotes/' + sort + '/' + order) //http://localhost:5000 //https://dagmawibabi.com
     .then((response) => response.json())
     .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON; setNumOfPosts(responseJSON.length)})
     .catch((e) => console.log("error"))
-  }, []); 
+  }, [sort, order]); 
 
   async function addNote(){
     let newTitle = document.getElementById("titleInputBox").value;
@@ -40,30 +42,61 @@ function App() {
     setContent([...initContent]);
 
     // Update
-    fetch('https://dagmawibabi.com/wot/getNotes') //http://localhost:5000  //https://dagmawibabi.com
+    fetch('https://dagmawibabi.com/wot/getNotes' + sort + '/' + order) //http://localhost:5000  //https://dagmawibabi.com
     .then((response) => response.json())
     .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON; setNumOfPosts(responseJSON.length)})
     .catch((e) => console.log("error"))
 
     // Refresh
     setContent([...initContent]);
-
-    // Set Timeout
-
   }
 
+  async function likeNote(title, content){
+    fetch(`https://dagmawibabi.com/wot/likeNote/${title}/${content}`)
+    .then(()=> {
+      initContent.forEach((obj)=>{
+        if(obj.title === title && obj.content === content){
+          obj.likes++;
+        }
+      })})
+    .then(()=>{setContent([...initContent]);})
+    .catch((e) => console.log("error"));
+  }
+
+  async function dislikeNote(title, content){
+    fetch(`https://dagmawibabi.com/wot/dislikeNote/${title}/${content}`)
+    .then(()=> {
+      initContent.forEach((obj)=>{
+        if(obj.title === title && obj.content === content){
+          obj.dislikes--;
+        }
+      })})
+    .then(()=>{setContent([...initContent]);})
+    .catch((e) => console.log("error"));
+  }
 
   return (
     <div>
       <div className="App">
-        <h1 style={{padding: "60px 0px 30px 0px", fontSize: "40px"}}> Words of Strangers </h1>
+        <h1 className='appName'> Words of Strangers </h1>
         <div style={{display: "flex", justifyContent: "center"}}>
           <InputBox btnFunc={addNote} numOfPosts={numOfPosts} />
+        </div>
+        <div className='navBar'>
+            <select className='optionBtn' style={{marginRight: '10px'}} value={sort} onChange={(e)=>{setSort(e.target.value);}}>
+                <option value="likes" > Likes </option>
+                <option value="dislikes"> Dislikes </option>
+                <option value="time"> Chronological </option>
+            </select>
+            <select className='optionBtn' value={order} onChange={(e)=>{setOrder(e.target.value);}}>
+                <option value="1"> Ascending </option>
+                <option value="-1"> Descending </option>
+            </select>
         </div>
 
         <div className='gridView'>
           {
-            content.length > 0 ? content.map((content, index) => {return <TextCards key={index} title={content['title']} content={content['content']} date={content['date']} time={content['time']} />}) : null
+            content.length > 0 ? content.map((content, index) => {return <TextCards key={index} likeFunc={likeNote} dislikeFunc={dislikeNote} title={content['title']} content={content['content']} date={content['date']} time={content['time']} likes={content['likes']} dislikes={content['dislikes']} />}) : null
           }
         </div>
       </div>

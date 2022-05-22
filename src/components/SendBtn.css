@@ -23,3 +23,13 @@
     font-size: 14px;
     margin-bottom: 60px;
 }
+
+.optionBtn {
+    height: 35px;
+    border-radius: 20px;
+    padding: 4px 8px 4px;
+    background-color: #0c1a2f;
+    border-color: #1e795f;
+    border-style: solid;
+    color: #3c9981;
+}

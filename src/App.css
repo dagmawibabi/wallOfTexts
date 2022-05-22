@@ -20,10 +20,40 @@
 
 }
 
+.appName {
+  padding: 60px 0px 30px 0px;
+  font-size: 40px;
+  position: sticky;
+  top: -50px;
+  background-color: #0c1a2f;
+  opacity: 0.95
+}
+
+.navBar {
+  display: flex; 
+  justify-content: center;
+  position: sticky;
+  top: 80px;
+  background-color: #0c1a2f;
+  padding-bottom: 15px;
+  opacity: 1;
+}
+
 /* Simple responsive  */
 @media (max-width: 600px) {
+  .appName {
+    position: static;
+    top: 0px;
+  }
+  .navBar {
+    position: sticky;
+    top: 0px;
+    background-color: #0c1a2f;
+    padding: 15px;
+    opacity: 0.95;
+  }
   .gridView {
-      padding-left: 10%;
+      padding-left: 5%;
       grid-template-columns: repeat(1, 50vw);
       grid-template-rows: repeat(0, 110vw);
   }
@@ -40,6 +70,15 @@
 }
 
 @media (min-width: 1000px) {
+  .navBar {
+    display: flex; 
+    justify-content: center;
+    position: sticky;
+    top: 80px;
+    background-color: #0c1a2f;
+    padding-bottom: 15px;
+    opacity: 1;
+  }
   .gridView {
       padding-left: 4%;
       grid-template-columns: repeat(3, 30vw);

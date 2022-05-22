@@ -11,7 +11,7 @@ export const InputBox = (props) => {
             <br/>
 
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <button className='postCount' style={{marginRight: "10px"}} > {props.numOfPosts + " notes so far"} </button>
+                <button className='postCount' style={{marginRight: "0px"}} > {props.numOfPosts + " notes so far"} </button>
                 <button className='btn' onClick={props.btnFunc}> Post Note </button>
             </div>
         </div>

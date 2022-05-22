@@ -8,12 +8,16 @@
     background-color: #0c1d34;
     text-align: left;
     overflow: hidden;
+    display: block;
+    justify-content: space-between;
 }
 
 .card:hover {
+    transform: scale(1.4);
     background-color: #79e3c717;
     border-color: #79e3c6;
     box-shadow: 0px 0px 5px 5px rgba(95, 95, 95, 0.099);
+    backdrop-filter: blur(500px);
 }
 
 .title {
@@ -41,10 +45,33 @@
     padding: 10px 20px;
 }
 
+.votesDiv {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
 .votes {
-    background-color: #0c1a2f;
+    border: none;
+    background-color: #193761c3;
     color: whitesmoke;
     border-radius: 10px;
-    padding: 4px 20px;
-    justify-content: right;
+    padding: 2px 10px 3px 12px;
+
+}
+
+.votes:hover {
+    background-color: #224a83;
+}
+
+/* Simple responsive  */
+@media (max-width: 600px) {
+    .card {
+        width: 260px;
+    }
+    .card:hover {
+        transform: scale(1.1);
+    }
 }

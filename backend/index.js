@@ -21,7 +21,9 @@ let noteSchema = new mongoose.Schema({
     title: String,
     content: String,
     date: String,
-    time: String
+    time: String,
+    likes: Number,
+    dislikes: Number,
 });
 
 // Model
@@ -44,9 +46,22 @@ app.get("/wot/", async (req, res, next) => {
     res.send("Welcome to Wall of Texts API");
 });
 // Get Noteson
-app.get("/wot/getNotes", async (req, res) => {
-    let notes = await noteModel.find();
-    res.send(notes.reverse());
+app.get("/wot/getNotes/:sortParam/:sort", async (req, res) => {
+    let sortParam = req.params.sortParam;
+    let sort = req.params.sort;
+    let notes = [];
+    if(sortParam === "time"){
+        notes = await noteModel.find();
+        notes = (sort == -1 ? notes.reverse() : notes);
+    }
+    if(sortParam === "likes"){
+        notes = await noteModel.find().sort({likes: sort});
+    }
+    if(sortParam === "dislikes"){
+        sort = (sort == -1 ? 1 : -1);
+        notes = await noteModel.find().sort({dislikes: sort});
+    }
+    res.send(notes);
 });
 
 // Send Notes
@@ -63,21 +78,41 @@ app.get("/wot/sendNote/:title/:content", async (req, res) => {
                 content: req.params.content,
                 date: today.toLocaleDateString(),
                 time: today.toLocaleTimeString(),
-                ip: req.socket.remoteAddress,
+                likes: 0,
+                dislikes: 0
             });
             res.status(200).send("done");
         };
     }
 });
 
+// Like Note
+app.get("/wot/likeNote/:title/:content", async (req, res) => {
+    let result = await noteModel.updateOne({title: req.params.title, content: req.params.content}, {$inc: {likes: 1}});
+    res.status(200).send("done");
+});
+
+// Dislike Note
+app.get("/wot/dislikeNote/:title/:content", async (req, res) => {
+    let result = await noteModel.updateOne({title: req.params.title, content: req.params.content}, {$inc: {dislikes: -1}});
+    res.status(200).send("done");
+});
+
+// Debugging
 async function cleanBotMessage() {
     // remove note from db
     let result = await noteModel.deleteMany({title: "point maker!!!"});
     console.log(result.length);
 }
 
+async function addNewField(){
+    let result = await noteModel.updateMany({}, {$set: {dislikes: 0}});
+    console.log(result);
+}
+
 connectToDB();
 
+//addNewField();
 //cleanBotMessage();
 
 

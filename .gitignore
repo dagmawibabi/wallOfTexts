@@ -5,9 +5,6 @@
 /.pnp
 .pnp.js
 
-# Backend folder
-/backend
-
 # testing
 /coverage
 
