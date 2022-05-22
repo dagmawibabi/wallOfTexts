@@ -1,12 +1,18 @@
 # Words Of Strangers
 
-    Imagine if you could write something and post it to the world totally anonymous.
+## What is this?
 
-    You could confess a secret, write a letter to your crush, get some thoughts off your mind, tell a joke and basically anything you can think of.
+Imagine if you could write something and post it to the world totally anonymous.
 
-    With that in mind, I made Words Of Strangers. A webapp where you could post anything you want and it will be posted there forever. No one, not even me, will know who said what.
+You could confess a secret, write a letter to your crush, get some thoughts off your mind, tell a joke and basically anything you can think of.
 
-    It's also responsive on phones, tabLETS and PC so whatever you are on right now try it out and leave a note for all of us. 😊
+With that in mind, I made Words Of Strangers. A webapp where you could post anything you want and it will be posted there forever. No one, not even me, will know who said what.
+
+It's also responsive on phones, tabLETS and PC so whatever you are on right now try it out and leave a note for all of us. 😊
+
+<br>
+
+## Screenshots
 
 ![image1](assets/1.png)
 
