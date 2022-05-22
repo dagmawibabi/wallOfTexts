@@ -69,7 +69,7 @@
 /* Simple responsive  */
 @media (max-width: 600px) {
     .card {
-        width: 260px;
+        width: 290px;
     }
     .card:hover {
         transform: scale(1.1);
