@@ -14,8 +14,10 @@
 
 ![image1](assets/3.png)
 
-<img src="assets/4.jpg" width="300px">
-<img src="assets/5.jpg" width="300px">
+<div> 
+    <img src="assets/4.jpg" width="300px">
+    <img src="assets/5.jpg" width="300px">
+</div>
 
 <br>
 
