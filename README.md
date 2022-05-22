@@ -42,7 +42,7 @@
 
 You can use this API documentation to get you started with requests
 
-[API Documentation](https://github.com/dagmawibabi/wallOfTexts/blob/main/documentation/APIRoutes.md)
+* [API Documentation](https://github.com/dagmawibabi/wallOfTexts/blob/main/documentation/APIRoutes.md)
 
 ## Link to website
 
