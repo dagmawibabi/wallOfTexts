@@ -42,7 +42,7 @@
 
 You can use this API documentation to get you started with requests
 
-1. [API Documentation]("https://github.com/dagmawibabi/wallOfTexts/blob/main/documentation/APIRputes.md")
+[API Documentation]("https://github.com/dagmawibabi/wallOfTexts/blob/main/documentation/APIRputes.md")
 
 ## Link to website
 
