@@ -26,23 +26,23 @@
 
 > ### To contribute you need to make a pull request and here’s how:
 
-    1. Fork the repository and clone it locally. Connect your local to the original “upstream” repository by adding it as a remote. Pull in changes from “upstream” often so that you stay up to date so that when you submit your pull request, merge conflicts will be less likely. 
+1. Fork the repository and clone it locally. Connect your local to the original “upstream” repository by adding it as a remote. Pull in changes from “upstream” often so that you stay up to date so that when you submit your pull request, merge conflicts will be less likely. 
 
-    2. Create a branch for your edits.
+2. Create a branch for your edits.
 
-    3. Reference any relevant issues or supporting documentation in your PR (for example, “Closes #37.”)
+3. Reference any relevant issues or supporting documentation in your PR (for example, “Closed #37.”)
     
-    4. Try to include screenshots of the before and after if your changes include differences in HTML/CSS. Drag and drop the images into the body of your pull request.
+4. Try to include screenshots of the before and after if your changes include differences in HTML/CSS. Drag and drop the images into the body of your pull request.
     
-    5. Test your changes! Run your changes against any existing tests if they exist and create new ones when needed. Whether tests exist or not, make sure your changes don’t break the existing project.
+5. Test your changes! Run your changes against any existing tests if they exist and create new ones when needed. Whether tests exist or not, make sure your changes don’t break the existing project.
 
-    6. Contribute in the style of the project to the best of your abilities. This may mean using indents, semi-colons or comments differently than you would in your own repository, but makes it easier for the maintainer to merge, others to understand and maintain in the future.
+6. Contribute in the style of the project to the best of your abilities. This may mean using indents, semi-colons or comments differently than you would in your own repository, but makes it easier for the maintainer to merge, others to understand and maintain in the future.
 
 ## Documentations
 
 You can use this API documentation to get you started with requests
 
-[API Documentation]("https://github.com/dagmawibabi/wallOfTexts/blob/main/documentation/APIRputes.md")
+[API Documentation](https://github.com/dagmawibabi/wallOfTexts/blob/main/documentation/APIRoutes.md)
 
 ## Link to website
 
