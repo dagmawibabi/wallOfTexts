@@ -14,7 +14,8 @@
 ## __1. Get Notes__
 
 ## Description:
-    This API route will allow you to fetch all the notes with their title, content, likes and dislikes from the database sorted and ordered in the way you like.
+    This API route will allow you to fetch all the notes with their title, content, 
+    likes and dislikes from the database sorted and ordered in the way you like.
 
 ## Route 
    /wot/getNotes/sort/order
