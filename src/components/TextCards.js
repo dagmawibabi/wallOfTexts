@@ -15,7 +15,7 @@ export const TextCards = (props) => {
                 <div className='votesDiv'>
                     <h4 className='title'> {props.title}</h4> 
                     <div style={{display: "float", justifyContent: "space-between"}}>
-                        <button className='votes' style={{marginRight: "2px", marginBottom: "2px"}} onClick={like}> {props.likes + " 💚" } </button>
+                        <button className='votes' style={{marginRight: "2px", marginBottom: "2px"}} onClick={like}> {props.likes + " 👍" } </button>
                         <button className='votes' onClick={dislike}> {props.dislikes + " 👎" } </button>
                     </div>
                 </div>
