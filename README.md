@@ -38,6 +38,12 @@
 
     6. Contribute in the style of the project to the best of your abilities. This may mean using indents, semi-colons or comments differently than you would in your own repository, but makes it easier for the maintainer to merge, others to understand and maintain in the future.
 
+## Documentations
+
+You can use this API documentation to get you started with requests
+
+* [API Documentation]("https://github.com/dagmawibabi/wallOfTexts/blob/main/documentation/APIRputes.md")
+
 ## Link to website
 
 > * https://wall-of-texts.vercel.app/
