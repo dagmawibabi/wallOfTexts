@@ -53,7 +53,9 @@
     opacity: 0.95;
   }
   .gridView {
-      padding-left: 4%;
+      width: 350px;
+      /* padding-left: 4%; */
+      margin: auto auto;
       grid-template-columns: repeat(1, 50vw);
       grid-template-rows: repeat(0, 110vw);
   }
