@@ -110,7 +110,7 @@ function App() {
           {
               content.length > 0 ? 
                 content.map((content, index) => {
-                  return (
+                  return(
                     category === "all" ? 
                         <TextCards key={index} likeFunc={likeNote} dislikeFunc={dislikeNote} color={'#' + content['color']} title={content['title']} content={content['content']} date={content['date']} isBot={content['isBot']} time={content['time']} likes={content['likes']} dislikes={content['dislikes']} />  
                     : (

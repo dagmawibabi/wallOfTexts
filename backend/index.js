@@ -123,10 +123,10 @@ async function populate() {
     let redditSortType = ["hot", "new", "top", "controversial", "best", "random", "rising"];
     let colorList = ["ffffff","2BAE66FF","EDFF00FF","00A4CCFF","FFA177FF","A2A2A1FF","F9A12EFF","FE4773","933DC9","61b59f","F63CCA","00ED00","EC2A1C","FF7C00"];
 
-    let randomSubreddit = getRandom(0, subredditList.length);
-    let randomSortTime = getRandom(0, redditSortTime.length);
-    let randomSortType = getRandom(0, redditSortType.length);
-    let randomColor = getRandom(0, colorList.length);
+    let randomSubreddit = subredditList[getRandom(0, subredditList.length)];
+    let randomSortTime = redditSortTime[getRandom(0, redditSortTime.length)];
+    let randomSortType = redditSortType[getRandom(0, redditSortType.length)];
+    let randomColor = colorList[getRandom(0, colorList.length)];
     let redditResponse = await axios.get(`https://www.reddit.com/r/${randomSubreddit}/${randomSortType}.json?t=${randomSortTime}`);
     let randomPostNumber = getRandom(0, redditResponse["data"]["data"]["children"].length);    
 
