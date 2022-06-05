@@ -39,4 +39,29 @@
         width: 250px;
     }
 }
+
+.colorContainer {
+    display: flex; 
+    justify-content: space-between; 
+    margin: 10px 2px 20px;
+    padding: 10px;
+    border-radius: 100px;
+    background-color: #0c1829;
+}
+
+.colorContainer:hover {
+    background-color: #040910;
+}
+
+.colorCircles {
+    border: 1px solid black;
+    margin-right: 8px; 
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+}
   
+.colorCircles:hover {
+    border: 1px solid black;
+    box-shadow: 0px 0px 2px 2px white;
+}

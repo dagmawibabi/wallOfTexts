@@ -10,20 +10,25 @@ function App() {
   const [numOfPosts, setNumOfPosts] = useState(0);
   const [sort, setSort] = useState("time");
   const [order, setOrder] = useState(-1);
+  const [chosenColor, setChosenColor] = useState("61b59f");
 
   useEffect(()=>{
     fetch('https://dagmawibabi.com/wot/getNotes/' + sort + '/' + order) //http://localhost:5000 //https://dagmawibabi.com
     .then((response) => response.json())
     .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON; setNumOfPosts(responseJSON.length)})
-    .catch((e) => console.log("error"))
+    .catch((e) => console.log("error: " + e))
   }, [sort, order]); 
 
+  function setColor(color){
+    setChosenColor(color);
+  }
   async function addNote(){
     let newTitle = document.getElementById("titleInputBox").value;
     let newContent = document.getElementById("contentInputBox").value;
     let newObj = {
       title: newTitle,
       content: newContent,
+      color: chosenColor
     };
     document.getElementById("titleInputBox").value = "";
     document.getElementById("contentInputBox").value = "";
@@ -34,21 +39,22 @@ function App() {
     //navigator.clipboard.writeText(`${newTitle} \n ${newContent}`); 
 
     // add to db
-    fetch(`https://dagmawibabi.com/wot/sendNote/${newTitle}/${newContent}`) 
+    await fetch(`https://dagmawibabi.com/wot/sendNote/${newTitle}/${newContent}/${chosenColor}`) 
     .then((response) => console.log(response))
     .catch((e) => console.log("error"))
 
     // Refresh
-    setContent([...initContent]);
+    // setContent([...initContent]);
 
     // Update
     fetch('https://dagmawibabi.com/wot/getNotes' + sort + '/' + order) //http://localhost:5000  //https://dagmawibabi.com
     .then((response) => response.json())
     .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON; setNumOfPosts(responseJSON.length)})
     .catch((e) => console.log("error"))
+    .finally(() => setContent([...initContent]));
 
     // Refresh
-    setContent([...initContent]);
+    // setContent([...initContent]);
   }
 
   async function likeNote(title, content){
@@ -80,7 +86,7 @@ function App() {
       <div className="App">
         <h1 className='appName'> Words of Strangers </h1>
         <div style={{display: "flex", justifyContent: "center"}}>
-          <InputBox btnFunc={addNote} numOfPosts={numOfPosts} />
+          <InputBox btnFunc={addNote} color={'#' + chosenColor} numOfPosts={numOfPosts} setColorFunc={setColor}/>
         </div>
         <div className='navBar'>
             <select className='optionBtn' style={{marginRight: '10px'}} value={sort} onChange={(e)=>{setSort(e.target.value);}}>
@@ -96,7 +102,7 @@ function App() {
 
         <div className='gridView'>
           {
-            content.length > 0 ? content.map((content, index) => {return <TextCards key={index} likeFunc={likeNote} dislikeFunc={dislikeNote} title={content['title']} content={content['content']} date={content['date']} time={content['time']} likes={content['likes']} dislikes={content['dislikes']} />}) : null
+            content.length > 0 ? content.map((content, index) => {return <TextCards key={index} likeFunc={likeNote} dislikeFunc={dislikeNote} color={'#' + content['color']} title={content['title']} content={content['content']} date={content['date']} time={content['time']} likes={content['likes']} dislikes={content['dislikes']} />}) : null
           }
         </div>
       </div>
