@@ -107,7 +107,7 @@ app.get("/wot/dislikeNote/:title/:content", async (req, res) => {
 
 // Random Number
 function getRandom(min, max) {
-    return Math.random() * (max - min) + min;
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
 // Feed Poplation
@@ -126,11 +126,8 @@ async function populate() {
     let randomSubreddit = subredditList[getRandom(0, subredditList.length)];
     let randomSortTime = redditSortTime[getRandom(0, redditSortTime.length)];
     let randomSortType = redditSortType[getRandom(0, redditSortType.length)];
-    let randomColor = colorList[getRandom(0, colorList.length)];
-    let redditResponse = await axios.get(`https://www.reddit.com/r/${randomSubreddit}/${randomSortType}.json?t=${randomSortTime}`);
+    let randomColor = colorList[getRandom(0, colorList.length)];    let redditResponse = await axios.get(`https://www.reddit.com/r/${randomSubreddit}/${randomSortType}.json?t=${randomSortTime}`);
     let randomPostNumber = getRandom(0, redditResponse["data"]["data"]["children"].length);    
-
-
     let newPostTitle = redditResponse["data"]["data"]["children"][randomPostNumber]["data"]["selftext"].toLowerCase();
     let newPostContent = redditResponse["data"]["data"]["children"][randomPostNumber]["data"]["title"].toLowerCase();
     if (newPostTitle.length < 100 && newPostContent.length < 400 && newPostTitle.indexOf("reddit") === -1 && newPostContent.indexOf("reddit") === -1) {

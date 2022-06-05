@@ -4,7 +4,7 @@ import { TextCards } from './components/TextCards';
 import { useEffect, useState} from 'react';
 
 let initContent = [];
-
+let curAPIURLBase = 'https://dagmawibabi.com'; // 'http://localhost:5000'; // "".
 function App() {  
   const [content, setContent] = useState([]);
   const [numOfPosts, setNumOfPosts] = useState(0);
@@ -14,7 +14,7 @@ function App() {
   const [chosenColor, setChosenColor] = useState("61b59f");
 
   useEffect(()=>{
-    fetch('https://dagmawibabi.com/wot/getNotes/' + sort + '/' + order) //http://localhost:5000 //https://dagmawibabi.com
+    fetch(curAPIURLBase + '/wot/getNotes/' + sort + '/' + order) 
     .then((response) => response.json())
     .then((responseJSON) => {setContent(responseJSON); initContent = responseJSON; setNumOfPosts(responseJSON.length)})
     .catch((e) => console.log("error: " + e))
