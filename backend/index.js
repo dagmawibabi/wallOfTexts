@@ -117,7 +117,7 @@ async function populate() {
     const today = new Date(timeElapsed);  
 
     let subredditList = ["quotes", "TraditionalCurses", "oneliners", "DirtyJokes", "cleanjokes", "dadjokes", "AskReddit", "whowouldwin", "AskWomen", "AskMen", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "AskHistorians", "askscience","Anxiety", "depression", "books", "quoteporn", "whowouldwin"]; 
-    subredditList = ["quotes", "TraditionalCurses", "oneliners", "DirtyJokes", "cleanjokes", "dadjokes", "whowouldwin", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "Anxiety", "depression", "books", "quoteporn", "whowouldwin"]; 
+    subredditList = ["quotes", "oneliners", "DirtyJokes", "cleanjokes", "dadjokes", "whowouldwin", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "Anxiety", "depression", "books", "quoteporn", "whowouldwin"]; 
     // subredditList = ["quotes", "cleanjokes", "dadjokes", "whowouldwin", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "askscience", "books", "quoteporn"]; 
     let redditSortTime = ["hour", "day", "week", "month", "year", "all"];
     let redditSortType = ["hot", "new", "top", "controversial", "best", "random", "rising"];
