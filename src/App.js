@@ -9,6 +9,7 @@ function App() {
   const [content, setContent] = useState([]);
   const [numOfPosts, setNumOfPosts] = useState(0);
   const [sort, setSort] = useState("time");
+  const [category, setCategory] = useState("all");
   const [order, setOrder] = useState(-1);
   const [chosenColor, setChosenColor] = useState("61b59f");
 
@@ -94,6 +95,11 @@ function App() {
                 <option value="dislikes"> Dislikes </option>
                 <option value="time"> Chronological </option>
             </select>
+            <select className='optionBtn' style={{marginRight: '10px'}} value={category} onChange={(e)=>{setCategory(e.target.value);}}>
+                <option value="all"> All </option>
+                <option value="bots" > Bots </option>
+                <option value="strangers"> Strangers </option>
+            </select>
             <select className='optionBtn' value={order} onChange={(e)=>{setOrder(e.target.value);}}>
                 <option value="1"> Ascending </option>
                 <option value="-1"> Descending </option>
@@ -102,14 +108,25 @@ function App() {
 
         <div className='gridView'>
           {
-            content.length > 0 ? content.map((content, index) => {
-              return (
-                // content["isBot"] !== true ?
-                  <TextCards key={index} likeFunc={likeNote} dislikeFunc={dislikeNote} color={'#' + content['color']} title={content['title']} content={content['content']} date={content['date']} isBot={content['isBot']} time={content['time']} likes={content['likes']} dislikes={content['dislikes']} /> 
-              //  : null 
-               )
-              }
-            ) : null
+              content.length > 0 ? 
+                content.map((content, index) => {
+                  return (
+                    category === "all" ? 
+                        <TextCards key={index} likeFunc={likeNote} dislikeFunc={dislikeNote} color={'#' + content['color']} title={content['title']} content={content['content']} date={content['date']} isBot={content['isBot']} time={content['time']} likes={content['likes']} dislikes={content['dislikes']} />  
+                    : (
+                      category === "bots" ?
+                        content["isBot"] === true ? 
+                          <TextCards key={index} likeFunc={likeNote} dislikeFunc={dislikeNote} color={'#' + content['color']} title={content['title']} content={content['content']} date={content['date']} isBot={content['isBot']} time={content['time']} likes={content['likes']} dislikes={content['dislikes']} />  
+                        : null
+                      : category === "strangers" ? 
+                          content["isBot"] !== true ? 
+                            <TextCards key={index} likeFunc={likeNote} dislikeFunc={dislikeNote} color={'#' + content['color']} title={content['title']} content={content['content']} date={content['date']} isBot={content['isBot']} time={content['time']} likes={content['likes']} dislikes={content['dislikes']} />  
+                          : null
+                        : null
+                    ) 
+                  )
+                })
+              : <div className='loading'> Loading... </div> 
           }
         </div>
       </div>

@@ -105,6 +105,11 @@ app.get("/wot/dislikeNote/:title/:content", async (req, res) => {
     res.status(200).send("done");
 });
 
+// Random Number
+function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
 // Feed Poplation
 async function populate() {
     // https://www.reddit.com/r/confession.json
@@ -112,31 +117,19 @@ async function populate() {
     const today = new Date(timeElapsed);  
 
     let subredditList = ["quotes", "TraditionalCurses", "oneliners", "DirtyJokes", "cleanjokes", "dadjokes", "AskReddit", "whowouldwin", "AskWomen", "AskMen", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "AskHistorians", "askscience","Anxiety", "depression", "books", "quoteporn", "whowouldwin"]; 
-    subredditList = ["quotes", "cleanjokes", "dadjokes", "whowouldwin", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "AskHistorians", "askscience","Anxiety", "depression", "books", "quoteporn"]; 
+    subredditList = ["quotes", "TraditionalCurses", "oneliners", "DirtyJokes", "cleanjokes", "dadjokes", "whowouldwin", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "Anxiety", "depression", "books", "quoteporn", "whowouldwin"]; 
+    // subredditList = ["quotes", "cleanjokes", "dadjokes", "whowouldwin", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "askscience", "books", "quoteporn"]; 
     let redditSortTime = ["hour", "day", "week", "month", "year", "all"];
     let redditSortType = ["hot", "new", "top", "controversial", "best", "random", "rising"];
-    let randomSubreddit = subredditList[Math.floor(Math.random() * subredditList.length)];
-    let randomSortTime = redditSortTime[Math.floor(Math.random() * redditSortTime.length)];
-    let randomSortType = redditSortType[Math.floor(Math.random() * redditSortType.length)];
-    let colorList = [
-        "ffffff",
-        "2BAE66FF",
-        "EDFF00FF",
-        "00A4CCFF",
-        "FFA177FF",
-        "A2A2A1FF",
-        "F9A12EFF",
-        "FE4773",
-        "933DC9",
-        "61b59f",
-        "F63CCA",
-        "00ED00",
-        "EC2A1C",
-        "FF7C00",
-    ];
+    let colorList = ["ffffff","2BAE66FF","EDFF00FF","00A4CCFF","FFA177FF","A2A2A1FF","F9A12EFF","FE4773","933DC9","61b59f","F63CCA","00ED00","EC2A1C","FF7C00"];
+
+    let randomSubreddit = getRandom(0, subredditList.length);
+    let randomSortTime = getRandom(0, redditSortTime.length);
+    let randomSortType = getRandom(0, redditSortType.length);
+    let randomColor = getRandom(0, colorList.length);
     let redditResponse = await axios.get(`https://www.reddit.com/r/${randomSubreddit}/${randomSortType}.json?t=${randomSortTime}`);
-    let randomPostNumber = Math.floor(Math.random() * redditResponse["data"]["data"]["children"].length);
-    let randomColor = colorList[Math.floor(Math.random() * colorList.length)];
+    let randomPostNumber = getRandom(0, redditResponse["data"]["data"]["children"].length);    
+
 
     let newPostTitle = redditResponse["data"]["data"]["children"][randomPostNumber]["data"]["selftext"].toLowerCase();
     let newPostContent = redditResponse["data"]["data"]["children"][randomPostNumber]["data"]["title"].toLowerCase();
@@ -184,7 +177,7 @@ connectToDB();
 
 // updateValue();
 // addNewField();
-cleanBotMessage();
+// cleanBotMessage();
 
 
 
