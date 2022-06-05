@@ -30,17 +30,9 @@
     box-shadow: 0px 0px 10px 10px rgba(127, 127, 127, 0.099);
 }
 
-/* Simple responsive  */
-@media (max-width: 600px) {
-    .titleInputBox {
-        width: 250px;
-    }
-    .contentInputBox {
-        width: 250px;
-    }
-}
 
 .colorContainer {
+    width: 450px;
     display: flex; 
     justify-content: space-between; 
     margin: 10px 2px 20px;
@@ -64,4 +56,30 @@
 .colorCircles:hover {
     border: 1px solid black;
     box-shadow: 0px 0px 2px 2px white;
+}
+
+
+/* Simple responsive  */
+@media (max-width: 600px) {
+    .titleInputBox {
+        width: 250px;
+    }
+    .contentInputBox {
+        width: 250px;
+    }
+    .colorContainer {
+        margin: 10px 2px 20px;
+        padding: 10px;
+        display: grid;
+        width: 300px;
+        grid-template-columns: repeat(7, 25px);
+        grid-template-rows: repeat(2, 25px);
+        grid-column-gap: 0px;
+        grid-row-gap: 15px;
+}
+    .colorCircles {
+        border: 1px solid black;
+        display: block;
+    }
+    
 }

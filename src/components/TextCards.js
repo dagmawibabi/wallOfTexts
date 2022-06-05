@@ -22,7 +22,7 @@ export const TextCards = (props) => {
                 <p className='content' style={{color: `${props.color}`}}> {props.content}</p>
             </div> 
         } position="top center">
-            <div className='clipboard'> {props.time + " - " + props.date} </div>
+            <div className='clipboard'> {props.time + " - " + props.date + " " + (props.isBot === true ? "| Bot" : "")} </div>
         </Popup>
     );
 }
