@@ -135,7 +135,7 @@ async function populate() {
     ];
     let redditResponse = await axios.get(`https://www.reddit.com/r/${randomSubreddit}/${randomSortType}.json?t=${randomSortTime}`);
     let randomPostNumber = Math.floor(Math.random() * redditResponse["data"]["data"]["children"].length);
-    let randomColor = Math.floor(Math.random() * colorList.length);
+    let randomColor = colorList[Math.floor(Math.random() * colorList.length)];
 
     let newPostTitle = redditResponse["data"]["data"]["children"][randomPostNumber]["data"]["selftext"].toLowerCase();
     let newPostContent = redditResponse["data"]["data"]["children"][randomPostNumber]["data"]["title"].toLowerCase();
