@@ -112,6 +112,7 @@ async function populate() {
     const today = new Date(timeElapsed);  
 
     let subredditList = ["quotes", "TraditionalCurses", "oneliners", "DirtyJokes", "cleanjokes", "dadjokes", "AskReddit", "whowouldwin", "AskWomen", "AskMen", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "AskHistorians", "askscience","Anxiety", "depression", "books", "quoteporn", "whowouldwin"]; 
+    subredditList = ["quotes", "cleanjokes", "dadjokes", "whowouldwin", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "AskHistorians", "askscience","Anxiety", "depression", "books", "quoteporn"]; 
     let redditSortTime = ["hour", "day", "week", "month", "year", "all"];
     let redditSortType = ["hot", "new", "top", "controversial", "best", "random", "rising"];
     let randomSubreddit = subredditList[Math.floor(Math.random() * subredditList.length)];
@@ -164,7 +165,7 @@ async function populate() {
 // Debugging
 async function cleanBotMessage() {
     // remove note from db
-    let result = await noteModel.deleteMany({title: "point maker!!!"});
+    let result = await noteModel.deleteMany({isBot: true});
     console.log(result.length);
 }
 
@@ -183,7 +184,7 @@ connectToDB();
 
 // updateValue();
 // addNewField();
-// cleanBotMessage();
+cleanBotMessage();
 
 
 
