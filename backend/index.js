@@ -120,7 +120,9 @@ async function populate() {
     // console.log(today.toLocaleTimeString());
     
     // console.log(Number(today.toLocaleTimeString().substring(0,2)));
-    if (Number(today.toLocaleTimeString().substring(0,2)) === 10){
+    let time = Number(today.toLocaleTimeString().substring(0,2));
+    let postingTime = [1,4,6,10,12];
+    if (postingTime.includes(time) === true) {
         let subredditList = ["quotes", "TraditionalCurses", "oneliners", "DirtyJokes", "cleanjokes", "dadjokes", "AskReddit", "whowouldwin", "AskWomen", "AskMen", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "AskHistorians", "askscience","Anxiety", "depression", "books", "quoteporn", "whowouldwin"]; 
         subredditList = ["quotes", "oneliners", "DirtyJokes", "cleanjokes", "dadjokes", "whowouldwin", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "Anxiety", "depression", "books", "quoteporn", "whowouldwin"]; 
         // subredditList = ["quotes", "cleanjokes", "dadjokes", "whowouldwin", "DecidingToBeBetter", "selfimprovement", "getdisciplined", "askscience", "books", "quoteporn"]; 
