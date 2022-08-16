@@ -9,16 +9,16 @@
     text-align: left;
     overflow: hidden;
     display: block;
+    transition: all 0.14s cubic-bezier(0,1,1,.99);
     justify-content: space-between;
 }
 
 .card:hover {
-    transform: scale(1.4);
+    transform: scale(1.32);
     background-color: #79e3c717;
-    border-color: #79e3c6;
-    box-shadow: 0px 0px 5px 5px rgba(95, 95, 95, 0.099);
     backdrop-filter: blur(500px);
 }
+
 
 .title {
     margin-bottom: 10px;
